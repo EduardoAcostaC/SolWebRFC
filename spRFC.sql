@@ -46,3 +46,10 @@ AS
 BEGIN
 	UPDATE dbRFC SET activo = 0 WHERE idRFC = @idRFC;
 END;
+
+CREATE OR ALTER PROC spBuscarRFC
+@nombre VARCHAR(100)
+AS 
+BEGIN
+	SELECT * FROM dbRFC WHERE nombre LIKE @nombre;
+END;

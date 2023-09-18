@@ -24,3 +24,7 @@ EXEC spBorrarRFC 2;
 UPDATE dbRFC SET activo= 1;
 
 DROP TABLE tablaRFC;
+
+SELECT * FROM dbRFC WHERE nombre LIKE 'Eduardo';
+
+EXEC spBuscarRFC 'Eduardo';
