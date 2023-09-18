@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VistaFormulario</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet"/>
+    <link href="~/Content/StyleSheet.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+       <h2 class="text-center display-2">Ingresa los siguientes datos:</h2>
+
+
+       <div class="row justify-content-center mt-5">
+           <div class="col-md-6 bg-light bg-opacity-25 p-4 rounded">
+               
+               <form action="/Home/FormularioPOST" method="post">
+                   <label class="form-label text-dark">Nombre(s):</label>
+                   <input type="text" class="form-control" name="nombre" placeholder="Escribe tu(s) nombre(s)" required>
+                   <br />
+
+                   <label class="form-label">Apellido Paterno:</label>
+                   <input type="text" class="form-control" name="apellidoPaterno" placeholder="Escribe tu primer apellido" required>
+                   <br />
+
+                   <label class="form-label">Apellido Materno:</label>
+                   <input type="text" class="form-control" name="apellidoMaterno" placeholder="Escribe tu segundo apellido" required>
+                   <br />
+
+                   <label class="form-label">Fecha de Nacimiento</label>
+                   <input type="date" class="form-control" name="fechaNacimiento" placeholder="Dia / Mes / Año" required />
+                   <br />
+
+                   <div class="text-center mt-3">
+                       <input type="submit" class="btn btn-success" value="Generar tu RFC" />
+                       <a href="~/Home/Index" class="btn btn-primary"> Regresar </a>
+                   </div>
+               </form>
+           </div>
+       </div>
+       
+
+    </div>
+</body>
+</html>

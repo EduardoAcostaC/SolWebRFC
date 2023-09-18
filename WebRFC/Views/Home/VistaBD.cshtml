@@ -1,0 +1,96 @@
+﻿@using Entidades
+
+@model List<E_RFC>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VistaBD</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet"/>
+    <link href="~/Content/StyleSheet.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+
+        <h2 class="text-center display-2">Base de Datos de RFC's</h2>
+
+        @if (TempData["mensaje"] != null)
+        {
+            <div class="alert alert-success">
+                <b>@TempData["mensaje"]</b>
+            </div>
+        }
+
+
+        @if (TempData["error"] != null)
+        {
+            <div class="alert alert-danger">
+                Hubo un error, favor de contactar al administrador.
+            </div>
+        }
+
+
+
+        <form action="~/Home/Busqueda" method="post">
+            <div class="row">
+                <div class="col-10">
+                    <input type="text" name="Busqueda" class="form-control" placeholder="Buscar..." />
+                </div>
+                <div class="col-2">
+                    <input type="submit" value="Buscar" class="btn btn-primary" />
+                </div>
+            </div>
+        </form>
+
+
+        <table class="table table-success mt-3">
+            <thead>
+                <tr>
+                    <th> Nombre </th>
+                    <th> Fecha de Nacimiento </th>
+                    <th> RFC </th>
+                    <th> Acciones </th>
+                </tr>
+            </thead>
+
+
+
+            <tbody>
+                @foreach (E_RFC persona in Model)
+                {
+                    <tr>
+                        <td> @persona.nombreCompleto </td>
+                        <td> @persona.fechaNacimiento.ToString("dd/MM/yyyy") </td>
+                        <td> @persona.rfc </td>
+                        <td>
+                            <a class="btn btn-primary" href="/Home/ObtenerEditar?id=@persona.idRFC">Editar</a>
+                            <a class="btn btn-danger" href="/Home/ObtenerEliminar?id=@persona.idRFC">Eliminar</a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="container mb-3">
+            <div class="row mx-auto">
+                <div class="col">
+                    <a href="~/Home/IrFormulario"  class="btn btn-primary">Generar otro RFC</a>
+                </div>
+                <div class="col">
+                    <a href="~/Home/Index"  class="btn btn-success"> Inicio </a>
+                </div>
+                <div class="col">
+                    <a href="~/Home/Index"  class="btn btn-danger">Salir </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿@using Entidades
+
+@model E_RFC
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VistaEliminar</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet"/>
+    <link href="~/Content/StyleSheet.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+
+        <h2 class="text-center display-2">¿Quieres eliminar al usuario?</h2>
+
+        <table class="table table-success mt-3">
+            <thead>
+                <tr>
+                    <th> Nombre </th>
+                    <th> Fecha de Nacimiento </th>
+                    <th> RFC </th>
+                    <th> Acciones </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td> @Model.nombreCompleto </td>
+                    <td> @Model.fechaNacimiento.ToString("dd/MM/yyyy") </td>
+                    <td> @Model.rfc </td>
+                    <td>
+                        <a class="btn btn-danger" href="/Home/Eliminar?id=@Model.idRFC">Eliminar</a>
+                        <a class="btn btn-primary" href="/Home/IrBaseDatos">Regresar</a>
+
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</body>
+</html>

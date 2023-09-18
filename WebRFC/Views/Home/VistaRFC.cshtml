@@ -1,0 +1,46 @@
+﻿@using Entidades
+
+@model E_RFC
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VistaRFC</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet"/>
+    <link href="~/Content/StyleSheet.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center display-2">Tu RFC es:</h2>
+
+
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6 bg-light bg-opacity-25 p-4 rounded">
+
+                <form action="/Home/IrFormulario" method="post">
+
+                    <div class="alert alert-light" role="alert">
+                        @TempData["RFC"]
+                    </div>
+
+                    <br />
+
+                    <div class="text-center mt-3">
+                        <input type="submit" class="btn btn-success mb-3" value="Generar otro RFC" />
+                        <br />
+                        <a href="~/Home/IrBaseDatos" class="btn btn-light mb-3">Ir a Base de Datos</a>
+                        <br />
+                        <a href="~/Home/Index" class="btn btn-primary"> Salir </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

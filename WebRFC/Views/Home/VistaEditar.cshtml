@@ -1,0 +1,56 @@
+﻿@using Entidades
+
+@model E_RFC
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VistaEditar</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet"/>
+    <link href="~/Content/StyleSheet.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+
+        <h2 class="text-center display-2">Edita los siguientes datos:</h2>
+
+
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6 bg-light bg-opacity-25 p-4 rounded">
+
+                <form action="/Home/EditarPOST" method="post">
+
+                    <input type="hidden" name="idRFC" value="@Model.idRFC" />
+
+                    <label class="form-label text-dark">Nombre(s):</label>
+                    <input type="text" class="form-control" name="nombre" placeholder="Escribe tu(s) nombre(s)" value="@Model.nombre" required>
+                    <br />
+
+                    <label class="form-label">Apellido Paterno:</label>
+                    <input type="text" class="form-control" name="apellidoPaterno" placeholder="Escribe tu primer apellido" value="@Model.apellidoPaterno"  required>
+                    <br />
+
+                    <label class="form-label">Apellido Materno:</label>
+                    <input type="text" class="form-control" name="apellidoMaterno" placeholder="Escribe tu segundo apellido" value="@Model.apellidoMaterno" required>
+                    <br />
+
+                    <label class="form-label">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" name="fechaNacimiento" placeholder="Dia / Mes / Año" value="@Model.fechaNacimiento.ToString("yyyy-MM-dd")" required  />
+                    <br />
+
+                    <div class="text-center mt-3">
+                        <input type="submit" class="btn btn-success" value="Generar tu RFC" />
+                        <a href="~/Home/Index" class="btn btn-primary"> Regresar </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
